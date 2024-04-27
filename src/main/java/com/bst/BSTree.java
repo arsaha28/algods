@@ -63,4 +63,30 @@ public class BSTree {
         }
     }
 
+    public void delete(int value){
+        root = delete(value, root);
+    }
+
+    public Node delete(int value, Node root) {
+        if (root == null) {
+            return null;
+        }
+        if(value< root.value){
+            root.left = delete(value,root.left);
+        }else if(value> root.value){
+            root.right = delete(value,root.right);
+        }else {
+            if(root.left == null) {
+                return root.right;
+            }else if(root.right == null){
+                return root.left;
+            }else {
+                root.value = minValue(root.right);
+                root.right = delete(root.value, root.right);
+
+            }
+        }
+        return root;
+    }
+
 }
