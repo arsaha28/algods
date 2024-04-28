@@ -4,15 +4,6 @@ public class BSTree {
 
     Node root = null;
 
-    static class Node{
-        int value;
-        Node left = null;
-        Node right = null;
-        public Node(int value){
-            this.value = value;
-        }
-    }
-
     public Node insert(int value){
         if(root == null){
             root = new Node(value);
